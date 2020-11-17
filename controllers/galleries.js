@@ -22,4 +22,14 @@ router.post('/', (req, res, next) => {
 		.catch(next);
 });
 
+router.put('/:id', (req, res, next) => {
+	Galleries.findOneAndUpdate({ _id: req.params.id }, req.body)
+		.then((galleries) =>
+			Galleries.find({}).then((galleries) => {
+				res.json(galleries);
+			})
+		)
+		.catch(next);
+});
+
 module.exports = router;
