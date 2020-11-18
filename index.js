@@ -9,9 +9,6 @@ app.use(cors());
 const galleriesControllers = require('./controllers/galleries');
 app.use('/api/galleries', galleriesControllers);
 
-const galleryTitlesControllers = require('./controllers/galleryTitles');
-app.use('/api/gallerytitles', galleryTitlesControllers);
-
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {

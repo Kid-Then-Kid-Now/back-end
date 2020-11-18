@@ -1,25 +1,30 @@
 [{
     "title": "Tecmo Superbowl",
-    "imgUrl": "https://i.imgur.com/dQfocgB.jpeg", "caption": "this game is awesome",
+    "imgUrl": "https://i.imgur.com/dQfocgB.jpeg",
+    "caption": "This game is awesome!",
     "eraTime":"90's"
 },
 {
     "title": "Fruit String Thing",
-    "imgUrl": "https://i.imgur.com/aaF2Kx9.jpg", "caption": "snacks good",
+    "imgUrl": "https://i.imgur.com/aaF2Kx9.jpg",
+    "caption": "Snacks good",
     "eraTime": "90's"
 }, 
 {
     "title": "Game Boy",
-    "imgUrl": "https://i.imgur.com/auCFL1g.jpg", "caption": "good times",
+    "imgUrl": "https://i.imgur.com/auCFL1g.jpg",
+    "caption": "Good times!",
     "eraTime": "90's"
 }, 
 {
     "title": "Bell Bottoms",
-    "imgUrl": "https://i.imgur.com/GdKTVZy.jpg", "caption": "no idea", 
+    "imgUrl": "https://i.imgur.com/GdKTVZy.jpg",
+    "caption": "No idea", 
     "eraTime": "80's"
 }, 
 {
     "title": "Pogs",
-    "imgUrl": "https://i.imgur.com/7lYK2cT.jpg", "caption": "Game time",
+    "imgUrl": "https://i.imgur.com/7lYK2cT.jpg",
+    "caption": "Game time",
     "eraTime": "90's"
 }]
