@@ -12,6 +12,14 @@ router.get('/', (req, res, next) => {
 		.catch(next);
 });
 
+// Get a Gallery by ID
+router.get('/:id', (req, res, next) => {
+	const id = req.params.id
+	Galleries.findById(id)
+	.then(gallery => res.json(gallery))
+	.catch(next)
+})
+
 //created a gallery
 router.post('/', (req, res, next) => {
 	Galleries.create(req.body)
