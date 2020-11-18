@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 		.catch(next);
 });
 
+//created a gallery
 router.post('/', (req, res, next) => {
 	Galleries.create(req.body)
 		.then((gallery) => {
@@ -22,6 +23,7 @@ router.post('/', (req, res, next) => {
 		.catch(next);
 });
 
+// update a gallery
 router.put('/:id', (req, res, next) => {
 	Galleries.findOneAndUpdate({ _id: req.params.id }, req.body)
 		.then((galleries) =>
@@ -32,6 +34,7 @@ router.put('/:id', (req, res, next) => {
 		.catch(next);
 });
 
+// delete a gallery
 router.delete('/:id', (req, res, next) => {
 	Galleries.findOneAndRemove({ _id: req.params.id }, req.body)
 		.then((galleries) =>

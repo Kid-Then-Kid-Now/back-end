@@ -12,4 +12,37 @@ router.get('/', (req, res, next) => {
 		.catch(next);
 });
 
+//create a gallery title
+router.post('/', (req, res, next) => {
+	GalleryTitle.create(req.body)
+		.then((galleryTitle) => {
+			GalleryTitle.find({}).then((galleryTitle) => {
+				res.json(galleryTitle);
+			});
+		})
+		.catch(next);
+});
+
+// update a gallery title
+router.put('/:id', (req, res, next) => {
+	GalleryTitle.findOneAndUpdate({ _id: req.params.id }, req.body)
+		.then((galleryTitle) =>
+			GalleryTitle.find({}).then((galleryTitle) => {
+				res.json(galleryTitle);
+			})
+		)
+		.catch(next);
+});
+
+// delete a gallery title
+router.delete('/:id', (req, res, next) => {
+	GalleryTitle.findOneAndRemove({ _id: req.params.id }, req.body)
+		.then((galleryTitle) =>
+			GalleryTitle.find({}).then((galleryTitle) => {
+				res.json(galleryTitle);
+			})
+		)
+		.catch(next);
+});
+
 module.exports = router;
