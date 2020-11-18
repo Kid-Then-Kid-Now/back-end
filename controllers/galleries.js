@@ -14,20 +14,19 @@ router.get('/', (req, res, next) => {
 
 // Get a Gallery by ID
 router.get('/:id', (req, res, next) => {
-	const id = req.params.id
+	const id = req.params.id;
 	Galleries.findById(id)
-	.then(gallery => res.json(gallery))
-	.catch(next)
-})
+		.then((gallery) => res.json(gallery))
+		.catch(next);
+});
 
 //created a gallery
 router.post('/', (req, res, next) => {
 	Galleries.create(req.body)
 		.then((gallery) => {
-			Galleries.find({}).then((galleries) => {
-				res.json(galleries);
-			});
+			res.status(201).json(gallery);
 		})
+
 		.catch(next);
 });
 
