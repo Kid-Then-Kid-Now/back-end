@@ -32,12 +32,10 @@ router.post('/', (req, res, next) => {
 
 // update a gallery
 router.put('/:id', (req, res, next) => {
-	Galleries.findOneAndUpdate({ _id: req.params.id }, req.body)
-		.then((galleries) =>
-			Galleries.find({}).then((galleries) => {
-				res.json(galleries);
-			})
-		)
+	Galleries.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+		.then((gallery) => {
+			res.status(201).json(gallery);
+		})
 		.catch(next);
 });
 
