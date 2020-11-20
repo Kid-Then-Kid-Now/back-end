@@ -9,6 +9,9 @@ app.use(cors());
 const galleriesControllers = require('./controllers/galleries');
 app.use('/api/galleries', galleriesControllers);
 
+const userController = require('./controllers/users');
+app.use('/api', userController);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
