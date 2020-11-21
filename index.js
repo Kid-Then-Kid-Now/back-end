@@ -10,7 +10,7 @@ const galleriesControllers = require('./controllers/galleries');
 app.use('/api/galleries', galleriesControllers);
 
 const userController = require('./controllers/users');
-app.use('/api', userController);
+app.use('/api/users', userController);
 
 const port = process.env.PORT || 5000;
 
