@@ -7,6 +7,11 @@ const GallerySchema = new Schema({
     imgUrl: { type: String, required: true },
     caption: String,
     eraTime: String,
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    }
     
 }, { timestamps: true });
 
