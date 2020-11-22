@@ -1,6 +1,6 @@
 const Gallery = require('../models/gallery');
-const GallerySeeds = require('./galleries.json');
-const User = require('../models/User');
+const seedData = require('./galleries.json');
+const User = require('../models/user');
 
 const getUser = async () => {
   try {

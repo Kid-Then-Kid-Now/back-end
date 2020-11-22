@@ -1,4 +1,5 @@
 const mongoose = require('../db/connection')
+const user = require('./user')
 
 const Schema = mongoose.Schema
 
