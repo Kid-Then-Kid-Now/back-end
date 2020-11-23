@@ -22,7 +22,7 @@ const opts = {
 };
 
 
-const User = require('../models/User');
+const User = require('../models/user');
 
 
 // call new and pass in the options we set in the `opts` variable.
