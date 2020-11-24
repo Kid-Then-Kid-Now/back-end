@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {
-	handleErrors,
-	handleValidationErrors,
-} = require('./middleware/custom_errors');
+// const {
+// 	handleErrors,
+// 	handleValidationErrors,
+// } = require('./middleware/custom_errors');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,8 +30,8 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 5000;
 
-app.use(handleValidationErrors);
-app.use(handleErrors);
+// app.use(handleValidationErrors);
+// app.use(handleErrors);
 
 app.listen(port, () => {
 	console.log(`App is running ${port}!`);
