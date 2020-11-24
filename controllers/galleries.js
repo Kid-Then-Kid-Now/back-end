@@ -4,11 +4,11 @@ const router = express.Router();
 
 const Galleries = require('../models/gallery');
 
-const {
-	handleValidateId,
-	handleRecordExists,
-	handleValidateOwnership,
-} = require('../middleware/custom_errors');
+// const {
+// 	handleValidateId,
+// 	handleRecordExists,
+// 	handleValidateOwnership,
+// } = require('../middleware/custom_errors');
 
 const { requireToken } = require('../middleware/auth');
 
@@ -22,11 +22,11 @@ router.get('/', (req, res, next) => {
 });
 
 // Get a Gallery by ID
-router.get('/:id', handleValidateId, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
 	const id = req.params.id;
 	Galleries.findById(id)
 		.populate('owner')
-		.then(handleRecordExists)
+		// .then(handleRecordExists)
 		.then((gallery) => res.json(gallery))
 		.catch(next);
 });
@@ -52,15 +52,18 @@ router.post('/', requireToken, (req, res, next) => {
 // 		.catch(next);
 // });
 
-router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
-	Galleries.findById(req.params.id)
-		.then(handleRecordExists)
-		.then((gallery) => handleValidateOwnership(req, gallery))
-		.then((gallery) => gallery.set(req.body).save())
-		.then((gallery) => {
-			res.json(gallery);
-		})
-		.catch(next);
+router.put('/:id', requireToken, (req, res, next) => {
+	// Galleries.findById(req.params.id)
+	// .then(handleRecordExists)
+	// .then((gallery) => handleValidateOwnership(req, gallery))
+	// .then((gallery) => gallery.set(req.body).save())
+	// .then((gallery) => {
+	// 	res.json(gallery);
+	// })
+	// .catch(next);
+	Galleries.findByIdAndUpdate({ _id: req.params.id }, req.body, {
+		new: true,
+	}).then((gallery) => res.json(gallery));
 });
 
 // delete a gallery
@@ -75,10 +78,10 @@ router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
 // 		.catch(next);
 // });
 
-router.delete('/:id', handleValidateId, requireToken, (req, res, next) => {
+router.delete('/:id', requireToken, (req, res, next) => {
 	Galleries.findById(req.params.id)
-		.then(handleRecordExists)
-		.then((gallery) => handleValidateOwnership(req, gallery))
+		// .then(handleRecordExists)
+		// .then((gallery) => handleValidateOwnership(req, gallery))
 		.then((gallery) => gallery.remove())
 		.then(() => {
 			res.sendStatus(204);
