@@ -10,7 +10,7 @@ mongoose
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true,
-		useFindAndModify: true,
+		useFindAndModify: false,
 	})
 	.then((instance) =>
 		console.log(`connected to db: ${instance.connections[0].name}`)

@@ -1,21 +1,22 @@
-const mongoose = require('../db/connection')
-const user = require('./user')
+const mongoose = require('../db/connection');
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const GallerySchema = new Schema({
-	title: { type: String, required: true },
-    imgUrl: { type: String, required: true },
-    caption: String,
-    eraTime: String,
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    }
-    
-}, { timestamps: true });
+const GallerySchema = new Schema(
+	{
+		title: { type: String, required: true },
+		imgUrl: { type: String, required: true },
+		caption: String,
+		eraTime: String,
+		owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			required: true,
+		},
+	},
+	{ timestamps: true }
+);
 
-const Gallery = mongoose.model("Gallery", GallerySchema)
+const Gallery = mongoose.model('Gallery', GallerySchema);
 
-module.exports = Gallery 
+module.exports = Gallery;
